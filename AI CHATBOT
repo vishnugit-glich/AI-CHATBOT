@@ -1,0 +1,28 @@
+import nltk
+import random
+import string
+
+# Download required resources (run only once)
+nltk.download('punkt')
+nltk.download('wordnet')
+
+from nltk.chat.util import Chat, reflections
+from nltk.corpus import wordnet
+from nltk.tokenize import word_tokenize
+from nltk.stem import WordNetLemmatizer
+
+# Sample pairs for the chatbot (Q&A patterns)
+pairs = [
+    ["hi|hello|hey", ["Hello!", "Hi there!", "Hey! How can I help you?"]],
+    ["what is your name?", ["I am your AI chatbot, built with NLTK!"]],
+    ["how are you?", ["I'm just a bot, but I'm doing great!", "I'm good! How about you?"]],
+    ["what can you do?", ["I can answer your questions and make your day better!"]],
+    ["bye|exit|quit", ["Goodbye!", "See you soon!", "Exiting..."]],
+]
+
+# Define the chatbot
+chatbot = Chat(pairs, reflections)
+
+# Start the chatbot
+print("Hi! I’m a simple AI Chatbot 🤖. Type 'quit' to exit.")
+chatbot.converse()
